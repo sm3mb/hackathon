@@ -13,12 +13,20 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FilePath} from '@ionic-native/file-path/ngx';
+import { FileTransfer} from '@ionic-native/file-transfer/ngx';
+import { ImagePicker} from '@ionic-native/image-picker/ngx';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -26,7 +34,7 @@ import { FormsModule } from '@angular/forms';
     })
   ],
   declarations: [AppComponent],
-  providers: [InAppBrowser, SplashScreen, StatusBar],
+  providers: [InAppBrowser, SplashScreen, StatusBar, Camera,File,FilePath, FileTransfer, ImagePicker ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

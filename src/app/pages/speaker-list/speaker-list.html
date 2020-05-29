@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Speakers</ion-title>
+    <ion-title>Sell a car</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +14,102 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-grid fixed>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Owner Name</ion-label>
+        <ion-input formControlName="ownername" name="ownername" type="text" spellcheck="false"
+          autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Vehicle Type (Model year)</ion-label>
+        <ion-input formControlName="vehicletype"  name="vehicletype" type="text" spellcheck="false"
+        autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Miles Driven</ion-label>
+        <ion-input formControlName="milesdriven" name="milesdriven" type="text" spellcheck="false"
+        autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Car Color</ion-label>
+        <ion-input formControlName="carcolor" name="carcolor" type="text" spellcheck="false"
+        autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Mileage in City</ion-label>
+        <ion-input formControlName="mileagecity" name="mileagecity" type="text" spellcheck="false"
+        autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Mileage on Highway</ion-label>
+        <ion-input  formControlName="mileagehighway" name="mileagehighway" type="text" spellcheck="false"
+        autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Fuel Type</ion-label>
+        <ion-select formControlName="fueltype" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="Diesel">Diesel</ion-select-option>
+          <ion-select-option value="Gasoline">Gasoline</ion-select-option>
+          <ion-select-option value="Ethanol">Ethanol</ion-select-option>
+          <ion-select-option value="Bio-Diesel">Bio-Diesel</ion-select-option>
+          <ion-select-option value="compressedGas">Compressed Natural Gas</ion-select-option>
+          <ion-select-option value="Liquid Petroleum">Liquid Petroleum</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Car Condition</ion-label>
+        <ion-select formControlName="carcondition" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="Excellent">Excellent</ion-select-option>
+          <ion-select-option value="Good">Good</ion-select-option>
+          <ion-select-option value="Better">Better</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+     
+        <input type="file" id="fileLoader" #fileLoader name="files" title="Load File" hidden />
+        <ion-toolbar>
+          <ion-buttons>
+            <button ion-button icon-left (click)="presentActionSheet(fileLoader)">
+              <ion-icon name="camera"></ion-icon>Select Car Image
+            </button>
+            <button ion-button icon-left (click)="removePic()" [disabled]="uploadImage === null">
+              <ion-icon name="trash"></ion-icon>Remove
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+        <span *ngIf="uploadImage != null">
+          <img id="checkinImage" [src]="uploadImage" (load)="imageLoaded()" /> 
+        </span>
+        <span *ngIf="processing">
+            <ion-spinner></ion-spinner>
+            <h1>Processing...</h1>
+        </span>
+  
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </form>
+
+
+  <!-- <ion-grid fixed>
     <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
         <ion-card class="speaker-card">
@@ -48,5 +143,15 @@
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>
+
+
+
+
+ <!-- <ion-button (click)="pickMultipleImages()">Pick images</ion-button>
+      <ion-list *ngFor="let image of images">
+        <ion-item>
+          <img src={{image}}/>
+        </ion-item>
+      </ion-list> -->
