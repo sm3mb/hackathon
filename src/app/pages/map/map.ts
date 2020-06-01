@@ -11,12 +11,20 @@ import { darkStyle } from './map-dark-style';
   styleUrls: ['./map.scss']
 })
 export class MapPage implements AfterViewInit {
+  speakers: any[] = [];
+  submitted = false;
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
     public platform: Platform) {}
+
+    ionViewDidEnter() {
+      this.confData.getSpeakers().subscribe((speakers: any[]) => {
+        this.speakers = speakers;
+      });
+    }
 
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
