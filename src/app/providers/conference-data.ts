@@ -13,6 +13,10 @@ export class ConferenceData {
 
   constructor(public http: HttpClient, public user: UserData) {}
 
+  getCarsData(){
+    return this.http.get('http://localhost:3000/api/test');
+  }
+
   load(): any {
     if (this.data) {
       return of(this.data);

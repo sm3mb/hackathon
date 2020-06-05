@@ -13,6 +13,7 @@ import { darkStyle } from './map-dark-style';
 export class MapPage implements AfterViewInit {
   speakers: any[] = [];
   submitted = false;
+  carsList;
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   constructor(
@@ -21,6 +22,12 @@ export class MapPage implements AfterViewInit {
     public platform: Platform) {}
 
     ionViewDidEnter() {
+
+      this.confData.getCarsData().subscribe( res => {
+        console.log('data of cars@@@@@@@', res);
+        this.carsList = res;
+      });
+      
       this.confData.getSpeakers().subscribe((speakers: any[]) => {
         this.speakers = speakers;
       });

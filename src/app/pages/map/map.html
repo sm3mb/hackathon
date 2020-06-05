@@ -16,7 +16,7 @@
 
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
+      <!-- <ion-col size="12" size-md="6" *ngFor="let speaker of speakers">
         <ion-card class="speaker-card">
           <ion-card-header>
             <ion-item detail="false" lines="none" class="speaker-item" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
@@ -44,6 +44,49 @@
                 </ion-label>
               </ion-item>
             </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col> -->
+      <ion-col size="12" size-md="6" *ngFor="let car of carsList">
+        <ion-card class="speaker-card">
+          <ion-card-header>
+            <ion-item detail="false" lines="none" class="speaker-item">
+              <!-- <ion-avatar slot="start"> -->
+                <img [src]="car.image" [alt]="car.name + ' picture'">
+              <!-- </ion-avatar> -->
+              <!-- <ion-label>
+                <h2>{{car.name}}</h2>
+                <p>{{car.price}}</p>
+                <p>{{car.milesDriven}}</p>
+                <p>{{car.color}}</p>
+                <p>{{car.location}}</p>
+              </ion-label> -->
+            </ion-item>
+          </ion-card-header>
+
+          <ion-card-content>
+            <!-- <ion-label> -->
+              <div>
+                <h2>Name : {{car.name}}</h2>
+              <h2>Price : {{car.price}}</h2>
+              <h2>Millage : {{car.milesDriven}}</h2>
+              <h2>Color : {{car.color}}</h2>
+              <h2>Location : {{car.location}}</h2>
+              </div>
+            <!-- </ion-label> -->
+            <!-- <ion-list lines="none">
+              <ion-item *ngFor="let session of speaker.sessions" detail="false" routerLink="/app/tabs/speakers/session/{{session.id}}">
+                <ion-label>
+                  <h3>{{session.name}}</h3>
+                </ion-label>
+              </ion-item>
+
+              <ion-item detail="false" routerLink="/app/tabs/speakers/speaker-details/{{speaker.id}}">
+                <ion-label>
+                  <h3>About {{speaker.name}}</h3>
+                </ion-label>
+              </ion-item>
+            </ion-list> -->
           </ion-card-content>
         </ion-card>
       </ion-col>
