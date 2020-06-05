@@ -14,7 +14,7 @@ export class ConferenceData {
   constructor(public http: HttpClient, public user: UserData) {}
 
   getCarsData(){
-    return this.http.get('http://localhost:3000/api/carsdata');
+    return this.http.get('http://localhost:3000/data/carsdata');
   }
 
   load(): any {

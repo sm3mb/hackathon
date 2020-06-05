@@ -5,6 +5,8 @@ import { AlertController, IonList, IonRouterOutlet, LoadingController, ModalCont
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-schedule',
@@ -24,8 +26,12 @@ export class SchedulePage implements OnInit {
   groups: any = [];
   confDate: string;
   showSearchbar: boolean;
-
+  registrationForm: FormGroup;
+  makes = ['BMW','Ferari','Audi','Bugati'];
+  models = ['Camaro','Tracker','Venture'];
+  bodyType = ['Hybrid','SUV'];
   constructor(
+    private formBuilder: FormBuilder,
     public alertCtrl: AlertController,
     public confData: ConferenceData,
     public loadingCtrl: LoadingController,
@@ -37,7 +43,14 @@ export class SchedulePage implements OnInit {
     public config: Config
   ) { }
 
+
+
   ngOnInit() {
+    this.registrationForm = this.formBuilder.group({
+      makes: ['', Validators.required],
+      models: ['', [Validators.required]],
+      bodyType:['', [Validators.required]],
+    });
     this.updateSchedule();
 
     this.ios = this.config.get('mode') === 'ios';
