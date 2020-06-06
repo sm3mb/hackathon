@@ -5,7 +5,7 @@
       <ion-content>
         <ion-list lines="none">
           <ion-list-header>
-            Conference
+            Find A Used Car
           </ion-list-header>
           <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
             <ion-item [routerLink]="p.url" routerLinkActive="selected" routerDirection="root" detail="false">
@@ -66,14 +66,14 @@
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle autoHide="false">
+          <!-- <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/support" routerLinkActive="active" routerDirection="root" detail="false">
               <ion-icon slot="start" name="help"></ion-icon>
               <ion-label>
                 Support
               </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle> -->
 
           <ion-menu-toggle autoHide="false">
             <ion-item routerLink="/signup" routerLinkActive="active" routerDirection="root" detail="false">
@@ -93,7 +93,7 @@
           </ion-item>
         </ion-list>
 
-        <ion-list lines="none">
+        <!-- <ion-list lines="none">
           <ion-list-header>
             Tutorial
           </ion-list-header>
@@ -103,7 +103,7 @@
               <ion-label>Show Tutorial</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
+        </ion-list> -->
       </ion-content>
     </ion-menu>
 

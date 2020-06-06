@@ -30,6 +30,8 @@ export class SchedulePage implements OnInit {
   makes = ['BMW','Ferari','Audi','Bugati'];
   models = ['Camaro','Tracker','Venture'];
   bodyType = ['Hybrid','SUV'];
+  carsList;
+  showResults: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     public alertCtrl: AlertController,
@@ -54,6 +56,15 @@ export class SchedulePage implements OnInit {
     this.updateSchedule();
 
     this.ios = this.config.get('mode') === 'ios';
+    this.confData.getCarsData().subscribe( res => {
+      console.log('data of cars@@@@@@@', res);
+      this.carsList = res;
+    });
+  }
+
+  onSubmit(){
+    this.showResults = true;
+    console.log('showResultsshowResultsshowResults', this.showResults);
   }
 
   updateSchedule() {

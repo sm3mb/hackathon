@@ -14,13 +14,35 @@
 
   <div class="about-header">
     <!-- Instead of loading an image each time the select changes, use opacity to transition them -->
-    <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
+    <!-- <div class="about-image madison" [ngStyle]="location === 'madison' && {'opacity': '1'}"></div>
     <div class="about-image austin" [ngStyle]="location === 'austin' && {'opacity': '1'}"></div>
     <div class="about-image chicago" [ngStyle]="location === 'chicago' && {'opacity': '1'}"></div>
-    <div class="about-image seattle" [ngStyle]="location === 'seattle' && {'opacity': '1'}"></div>
+    <div class="about-image seattle" [ngStyle]="location === 'seattle' && {'opacity': '1'}"></div> -->
+    <div>
+      <video id="myVideo" controls playsinline width="100%">
+        <source src="https://media.flickfusion.net/videos/basic/lg_player.php?vehicle_fkey=302D7FB1-79C5-E54F-4C83-FD24172652FE" />
+      </video>
+    </div>
+    <div>
+      <img src="//media-cdn-delta.jazelc.com/media/5632998" alt="">
+      <img src="//media-cdn-delta.jazelc.com/media/5633007" alt="">
+      <img src="//media-cdn-delta.jazelc.com/media/5633000" alt="">
+    </div>
+    <div>
+      
+    </div>
+    <div class="carsData">
+      <h2>Name : 2014 ToyotaYaris 5DR Liftback Auto LE (TMC/CBU Plant)</h2>
+      <h2>Price : $8,499</h2>
+      <h2>Millage : 67k</h2>
+      <h2>Color : Red</h2>
+      <h2>Location : Clearwater, FL</h2>
+      <h2>Seller Type: Private Owner</h2>
+      <h2><a href="tel:+16023847460">Contact Owner</a></h2>
+    </div>
   </div>
-
-  <div class="about-info">
+  
+  <!-- <div class="about-info">
     <h3 class="ion-padding-top ion-padding-start">About</h3>
 
     <p class="ion-padding-start ion-padding-end">
@@ -73,5 +95,5 @@
         </ion-label>
       </ion-item>
     </ion-list>
-  </div>
+  </div> -->
 </ion-content>

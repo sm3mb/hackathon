@@ -6,7 +6,7 @@
     </ion-buttons>
 
     <ion-title>
-      Filter Sessions
+      Filter
     </ion-title>
 
     <ion-buttons slot="end">
@@ -16,7 +16,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list [lines]="ios ? 'inset' : 'full'">
+  <!-- <ion-list [lines]="ios ? 'inset' : 'full'">
     <ion-list-header>Tracks</ion-list-header>
 
     <ion-item *ngFor="let track of tracks" [attr.track]="track.name | lowercase">
@@ -25,17 +25,116 @@
       <ion-checkbox [(ngModel)]="track.isChecked"></ion-checkbox>
     </ion-item>
 
-  </ion-list>
+  </ion-list> -->
+  <ion-list>
+    <!-- <ion-item>
+      <ion-range min="1000" max="2000" step="100" snaps="true" ticks="false" color="secondary"></ion-range>
+    </ion-item> -->
+    <ion-item>
+      <ion-label>Price</ion-label>
+      <ion-range id="dual-range" dual-knobs pin color="secondary" min="5000" max="100000" step="100">
+        <!-- <ion-icon slot="start" size="small" name="brush"></ion-icon>
+        <ion-icon slot="end" name="brush"></ion-icon> -->
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <!-- This is for Type of car  -->
+  
+        <div>
+          <div class="row">
+          <!-- <img
+            src="https://static.ed.edmunds-media.com/unversioned/unit-gw/type-icon/2019/type-suv-midsize-subaru-outback-348x148.jpg" /> -->
+          
+          <ion-label>Car Type</ion-label>
+          <img class="car-type" 
+            src="https://static.ed.edmunds-media.com/unversioned/unit-gw/type-icon/2019/type-truck-large-ram-1500-348x148.jpg" />
+           
+          <img class="car-type"
+            src="https://static.ed.edmunds-media.com/unversioned/unit-gw/type-icon/2019/type-sedan-midsize-honda-accord-348x148.jpg" />
+           
+            <!-- <img class="car-type"
+            src="https://static.ed.edmunds-media.com/unversioned/unit-gw/type-icon/2019/type-hatchback-small-hyundai-veloster-348x148.jpg" /> -->
+          <img class="car-type"
+            src="https://static.ed.edmunds-media.com/unversioned/unit-gw/type-icon/2019/type-hybrid-plugin-chevrolet-volt-348x148.jpg" />
+          <img class="car-type"
+            src="https://static.ed.edmunds-media.com/unversioned/unit-gw/type-icon/2019/type-wagon-midsize-volvo-v90-cross-country-348x148.jpg" />
+          </div>
+          </div>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="stacked" color="primary">Select Distance</ion-label>
+      <ion-select formControlName="makes" okText="Okay" cancelText="Dismiss">
+        <ion-select-option>
+          Any Where
+        </ion-select-option>
+        <ion-select-option>
+          200 miles
+        </ion-select-option>
+        <ion-select-option>
+          150 miles
+        </ion-select-option>
+        <ion-select-option>
+          100 miles
+        </ion-select-option>
+        <ion-select-option>
+          50 miles
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Milage</ion-label>
+      <ion-range id="dual-range" dual-knobs pin color="secondary" min="1000" max="100000" step="100">
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Color</ion-label>
+      <ion-select formControlName="makes" okText="Okay" cancelText="Dismiss">
+        <ion-select-option>
+          Gray
+        </ion-select-option>
+        <ion-select-option>
+          Silver
+        </ion-select-option>
+        <ion-select-option>
+          White
+        </ion-select-option>
+        <ion-select-option>
+          Red
+        </ion-select-option>
+        <ion-select-option>
+          Black
+        </ion-select-option>
+        <ion-select-option>
+          Orange
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" color="primary">Seller Type</ion-label>
+      <ion-select formControlName="makes" okText="Okay" cancelText="Dismiss">
+        <ion-select-option>
+          Dealer
+        </ion-select-option>
+        <ion-select-option>
+          Private Owner
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+  
 </ion-content>
 
 <ion-footer translucent="true" *ngIf="ios">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="selectAll(false)">Deselect All</ion-button>
+      <ion-button (click)="selectAll(false)">Reset</ion-button>
     </ion-buttons>
-    <ion-buttons slot="end">
+    <!-- <ion-buttons slot="end">
       <ion-button (click)="selectAll(true)">Select All</ion-button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-footer>

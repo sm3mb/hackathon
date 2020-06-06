@@ -64,14 +64,14 @@
             </ion-item>
           </ion-card-header>
 
-          <ion-card-content>
+          <ion-card-content (click)="openModal()">
             <!-- <ion-label> -->
-              <div>
+              <div class="carsData">
                 <h2>Name : {{car.name}}</h2>
-              <h2>Price : {{car.price}}</h2>
-              <h2>Millage : {{car.milesDriven}}</h2>
-              <h2>Color : {{car.color}}</h2>
-              <h2>Location : {{car.location}}</h2>
+                <h2>Price : {{car.price}}</h2>
+                <h2>Millage : {{car.milesDriven}}</h2>
+                <h2>Color : {{car.color}}</h2>
+                <h2>Location : {{car.location}}</h2>
               </div>
             <!-- </ion-label> -->
             <!-- <ion-list lines="none">
